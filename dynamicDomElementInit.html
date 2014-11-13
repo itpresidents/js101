@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Button With Dynamic Dom</title>
+</head>
+<!--when the body is done loading, call the init function. Without this, our functions written below would not fire.-->
+<body onload="init()">
+
+<div id="container">
+</div>
+
+</body>
+
+<script type="text/javascript">
+var init = function(){
+	//a function to create a paragraph element, its text, and append it to the container named DIV
+	var createP = function(){
+	//create <p> element
+	var p = document.createElement("P");
+	//create text node to append
+	var text = document.createTextNode("This is the text node generated to append to the paragraph p we just created");
+	//append the text to the <p> we just created
+	p.appendChild(text);
+	//if we dont append this paragrph to something in our html page it will not show, so grab the div with the ID of container
+	var container = document.getElementById("container");
+	//append the paragraph "p" to the div "container"
+	container.appendChild(p);
+	}
+	//call the function to create the P, text, and append to exisiting div.
+	createP();
+}
+
+// another way to call the function on load, is to add an event listener
+// window.addEventListener('load',init);
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Button With Dynamic Dom</title>
+</head>
+
+<body>
+<!-- this button calls the addParagraph function when clicked -->
+<button onclick="addParagraph()">Add One Paragraph</button>
+<!-- this button calls the addMultiParagraphs function when clicked -->
+<button onclick="addMultiParagraphs()">Add Many Paragraphs</button>
+<div id="container">
+
+</div>
+</body>
+
+<script type="text/javascript">
+
+var addParagraph = function(){
+	//grab the div with the id container
+	var container = document.getElementById("container");
+	//overwrite its exisiting innerHTML with the following:
+	container.innerHTML = "<p>This button adds one paragraph by overwriting the current innerHTML of the container div. It will only add this one paragraph. Subsequent clicks will only overwrite the existing paragraph.</p>"
+}
+
+var addMultiParagraphs = function(){
+	//grab the div with the id container
+	var container = document.getElementById("container");
+	//append the div's inner HTML with another paragraph each time the function is called.
+	container.innerHTML += "<p>This button adds one paragraph by adding/appending to the current innerHTML of the container div. It will only add this same paragraph over and over again!</p>"
+}
+
+</script>
+
+</html>
