@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dynamic AJAX</title>
+
+</head>
+
+<body>
+
+Enter a City
+<input id="cityName" placeholder="Enter City Name">
+
+<p>The current city is <span id="currentCity"></span></p>
+<p>The weather is <span id="currentWeather"></span></p>
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+	// the $ sign denotes an Ajax function
+	$("#cityName").change(function(){
+  	var cityName = $("#cityName").val();
+
+	  jQuery.ajax({
+	      url : 'http://api.openweathermap.org/data/2.5/weather?q='+cityName,
+	      dataType : 'json',
+	      type : 'GET',
+	      success : function(response){
+	      	console.log(response);
+	      	var currentCity = document.getElementById('currentCity');
+	      	currentCity.innerHTML = response.name;
+	      	var currentWeather = document.getElementById('currentWeather');
+	      	currentWeather.innerHTML = response.weather[0].description;
+	      },
+	      error : function(err){
+	      	alert("Something Went Wrong, Try Again!");
+	      }
+	  });
+
+	});
+
+
+
+</script>
+
+
+</html>

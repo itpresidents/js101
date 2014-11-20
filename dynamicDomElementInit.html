@@ -8,6 +8,7 @@
 <body onload="init()">
 
 <div id="container">
+	<p id="paragraph1"></p>
 </div>
 
 </body>
@@ -16,10 +17,10 @@
 var init = function(){
 	//a function to create a paragraph element, its text, and append it to the container named DIV
 	var createP = function(){
-	//create <p> element
-	var p = document.createElement("P");
 	//create text node to append
 	var text = document.createTextNode("This is the text node generated to append to the paragraph p we just created");
+	//create <p> element
+	var p = document.createElement("P");
 	//append the text to the <p> we just created
 	p.appendChild(text);
 	//if we dont append this paragrph to something in our html page it will not show, so grab the div with the ID of container
